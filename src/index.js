@@ -3,7 +3,7 @@ const defaultOptions = {
   rate: 0.5
 }
 
-export default function install(Vue, options) {
+export function install(Vue, options) {
   Vue.prototype.$voice = function(params) {
     if ('speechSynthesis' in window) {
       const { voice, rate } = {...defaultOptions, ...options }
