@@ -33,21 +33,12 @@ See the full list of voices [here](https://developer.mozilla.org/en-US/docs/Web/
 #### Listen and clean
 ```js
 // ...
-created() {
-  this.$bus.on('add-todo', this.addTodo);
-  this.$bus.once('once', () => console.log('This listener will only fire once'));
-},
-beforeDestroy() {
-  this.$bus.off('add-todo', this.addTodo);
+mounted() {
+  this.voice();
 },
 methods: {
-  mounted() {
-    this.voice();
-  },
-  methods: {
-    voice(){
-      this.$voice('Hello world!');
-    }
+  voice() {
+    this.$voice('Hello world!');
   }
 }
 ```
