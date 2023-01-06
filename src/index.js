@@ -6,7 +6,6 @@ const defaultOptions = {
 export function install(Vue, options) {
   Vue.prototype.$voice = function(params) {
     if ('speechSynthesis' in window) {
-      console.log(options)
       const { voice, rate } = Object.assign(defaultOptions, options)
 
       const utterance = new SpeechSynthesisUtterance(params)
