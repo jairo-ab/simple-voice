@@ -14,23 +14,28 @@
   "bugs": {
     "url": "https://github.com/jairo-ab/simple-voice/issues"
   },
-  "main": "dist/simple-voice.common.mjs",
+  "main": "dist/simple-voice.common.js",
+  "module": "dist/simple-voice.esm.js",
+  "unpkg": "dist/simple-voice.js",
+  "jsdelivr": "dist/vue-bus.js",
   "files": [
     "dist/*"
   ],
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "build-library": "vue-cli-service build --target lib --name simple-voice ./src/index.js",
+    "build": "rimraf dist && rollup -c --bundleConfigAsCjs && uglifyjs dist/simple-voice.js -c -m --comments -o dist/simple-voice.min.js",
+    "build-library": "vue-cli-service build --target lib --name simple-voice ./src/index.js --plugins babel --format umd,es,cjs,umd-min",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@rollup/plugin-buble": "^1.0.1",
     "core-js": "^3.8.3",
+    "rimraf": "^3.0.2",
+    "rollup": "^3.9.1",
+    "uglify-js": "^3.17.4",
     "vue": "^2.6.14"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.16",
-    "@babel/eslint-parser": "^7.12.16",
     "@vue/cli-plugin-babel": "~5.0.0",
     "@vue/cli-plugin-eslint": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
