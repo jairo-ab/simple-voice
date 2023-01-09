@@ -13,7 +13,7 @@ $ npm install --save simple-voice
 When used with a module system, you must explicitly install the bus via Vue.use():
 ```js
 import Vue from 'vue';
-import SimpleVoice from 'vue-bus';
+import SimpleVoice from 'simple-voice';
 
 Vue.use(SimpleVoice);
 ```
